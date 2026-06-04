@@ -7,7 +7,7 @@
 <meta name="description" content="Кристина Дюран — практикующий психотерапевт, EMDR-специалист и нейробиолог. Психотерапия нового времени на фундаменте нейробиологии. Индивидуальная терапия, групповые EMDR-сессии, программы и обучение специалистов.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&family=Spectral:ital,wght@1,400;1,500&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700&display=swap&subset=cyrillic,latin" rel="stylesheet">
 <style>
   :root{
     --bg:#FBF6EC;
@@ -40,7 +40,7 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 44px;}
   .eyebrow{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);display:inline-block;}
-  .ser{font-family:var(--serif);font-style:italic;font-weight:500;}
+  .ser{color:var(--accent);}
 
   /* ---------- NAV ---------- */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 44px;transition:all .35s ease;}
@@ -93,7 +93,7 @@
   .approach .eyebrow{color:var(--gold);}
   .approach .eyebrow::before{background:var(--gold);}
   .approach .quote{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.2vw,52px);line-height:1.08;letter-spacing:-0.03em;max-width:20ch;margin:20px 0 46px;}
-  .approach .quote .ser{color:var(--gold);font-weight:500;}
+  .approach .quote .ser{color:var(--gold);}
   .approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;border-top:1px solid rgba(244,236,221,0.16);padding-top:42px;}
   .approach-grid p{color:rgba(244,236,221,0.82);font-size:17px;line-height:1.72;}
   .approach-grid p b{color:#fff;font-weight:600;}
@@ -146,7 +146,7 @@
   /* ---------- AUDIENCE ---------- */
   .aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
   .aud-cell{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px;}
-  .aud-cell .num{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--accent);line-height:1;margin-bottom:16px;}
+  .aud-cell .num{font-family:var(--display);font-weight:800;font-size:26px;color:var(--accent);line-height:1;margin-bottom:16px;letter-spacing:-0.02em;}
   .aud-cell h3{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.18;margin-bottom:11px;letter-spacing:-0.01em;}
   .aud-cell p{font-size:15px;line-height:1.5;color:var(--ink-soft);}
   @media(max-width:900px){.aud-grid{grid-template-columns:1fr 1fr;}}
@@ -179,7 +179,7 @@
   .contact .eyebrow{color:rgba(255,255,255,0.8);}
   .contact .eyebrow::before{background:rgba(255,255,255,0.8);}
   .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.4vw,82px);line-height:0.98;letter-spacing:-0.035em;margin:18px 0 22px;}
-  .contact h2 .ser{font-weight:500;}
+  .contact h2 .ser{color:var(--dark);}
   .contact p{font-size:18px;color:rgba(255,255,255,0.9);max-width:46ch;margin:0 auto 40px;line-height:1.55;}
   .contact-links{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
   .clink{display:inline-flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:15px;padding:17px 28px;border-radius:100px;transition:all .28s;}
@@ -421,7 +421,7 @@
       <div class="serv-cards">
         <div class="scard"><h3>Индивидуальная терапия</h3><p>Личная работа онлайн и офлайн — глубокая проработка запроса краткосрочными методами.</p><div class="meta">Онлайн / офлайн · по записи</div></div>
         <div class="scard"><h3>Групповые EMDR-сессии</h3><p>Онлайн по темам: тревога и стресс, деньги, отношения, здоровье. Работа с одним убеждением или состоянием.</p><div class="meta">Онлайн · группой</div></div>
-        <div class="scard"><h3>Тематические программы</h3><p>«Желать по-взрослому. Намерения 2026», «Отношения 1.0» и другие потоковые программы под задачу.</p><div class="meta">Потоки · онлайн</div></div>
+        <div class="scard"><h3>Книга и цифровые продукты</h3><p>Книга «Нейропроцессинг. Психотерапия нового времени», нейро-приложение и EMDR-сессии в записи.</p><div class="meta">Книга · приложение</div></div>
         <div class="scard"><h3>Закрытый клуб</h3><p>Telegram-сообщество с регулярным тематическим контентом, практиками и поддержкой.</p><div class="meta">Подписка · Telegram</div></div>
       </div>
     </div>
@@ -429,7 +429,7 @@
     <div class="serv-block reveal d1">
       <div class="serv-bhead"><span class="t">Специалистам</span><span class="tag">психологам и помогающим практикам</span><span class="ln"></span></div>
       <div class="serv-cards">
-        <div class="scard peers"><h3>Обучение по авторской методологии</h3><p>Программа «Психотерапия нового времени» — методология и нейробиологическая база для практиков.</p><div class="meta">Обучение · ДПО</div></div>
+        <div class="scard peers"><h3>Курс «Психотерапия нового времени»</h3><p>Флагманская программа: авторская методология и нейробиологическая база для практиков.</p><div class="meta">Обучение · ДПО</div></div>
         <div class="scard peers"><h3>Сертификация по EMDR</h3><p>Базовые и продвинутые техники нейропроцессинга и билатеральной стимуляции.</p><div class="meta">Курс · сертификация</div></div>
         <div class="scard peers"><h3>Супервизия и сопровождение</h3><p>Разбор клинических случаев, личная терапия и сопровождение практики — индивидуально и в группе.</p><div class="meta">Индивидуально / группой</div></div>
         <div class="scard peers"><h3>Сеть терапевтов под патронажем</h3><p>Развитие практики специалистов, обученных по методу, под единым брендом.</p><div class="meta">Сообщество практиков</div></div>
