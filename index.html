@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кристина Дюран — психотерапевт, нейробиолог · Психотерапия нового времени</title>
+<meta name="description" content="Кристина Дюран — практикующий психотерапевт, EMDR-специалист и нейробиолог. Психотерапия нового времени на фундаменте нейробиологии. Индивидуальная терапия, групповые EMDR-сессии, программы и обучение специалистов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5EEE2;
+    --paper-2:#EFE6D6;
+    --paper-3:#EAE0CD;
+    --ink:#2A2117;
+    --ink-soft:#6F6353;
+    --ink-mute:#9A8E7B;
+    --clay:#A6542C;
+    --clay-soft:#C27C50;
+    --gold:#9A7B4F;
+    --line:#D9CDB6;
+    --line-soft:#E4DAC6;
+    --espresso:#221A12;
+    --display:"Cormorant Garamond", Georgia, serif;
+    --body:"Spectral", Georgia, serif;
+    --ui:"Manrope", -apple-system, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:400;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* grain overlay */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:0.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--clay);color:var(--paper);}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 48px;}
+  .eyebrow{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--clay);}
+  .display{font-family:var(--display);font-weight:500;line-height:1.02;letter-spacing:-0.01em;}
+  .it{font-style:italic;}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 48px;transition:background .4s ease, padding .4s ease, box-shadow .4s ease;}
+  nav.scrolled{background:rgba(245,238,226,0.88);backdrop-filter:blur(12px);padding:14px 48px;box-shadow:0 1px 0 var(--line);}
+  nav .brand{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:0.01em;}
+  nav .brand span{color:var(--clay);}
+  nav .links{display:flex;align-items:center;gap:30px;font-family:var(--ui);font-size:12.5px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;}
+  nav .links a{color:var(--ink-soft);transition:color .25s;position:relative;}
+  nav .links a:hover{color:var(--ink);}
+  nav .links a.soc{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:all .25s;}
+  nav .links a.soc:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  nav .links .navlink{display:inline-block;}
+  @media(max-width:900px){ nav .links .navlink{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1.15fr 0.85fr;align-items:center;gap:60px;padding:140px 0 80px;position:relative;}
+  .hero-decor{position:absolute;top:0;right:0;width:50%;height:100%;z-index:0;opacity:0.5;pointer-events:none;}
+  .hero-text{position:relative;z-index:2;}
+  .hero .eyebrow{display:block;margin-bottom:26px;opacity:0;animation:rise .9s .1s forwards;}
+  .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(64px,9vw,128px);line-height:0.92;letter-spacing:-0.02em;margin-bottom:28px;}
+  .hero h1 .l1{display:block;overflow:hidden;}
+  .hero h1 .l2{display:block;overflow:hidden;color:var(--clay);font-style:italic;font-weight:500;}
+  .hero h1 .l1 span,.hero h1 .l2 span{display:block;transform:translateY(105%);animation:slideUp 1s cubic-bezier(.16,1,.3,1) forwards;}
+  .hero h1 .l1 span{animation-delay:.25s;}
+  .hero h1 .l2 span{animation-delay:.4s;}
+  .hero .lede{font-size:clamp(19px,2vw,23px);line-height:1.5;color:var(--ink-soft);max-width:30ch;margin-bottom:40px;opacity:0;animation:rise .9s .7s forwards;}
+  .hero .lede b{color:var(--ink);font-weight:500;}
+  .hero-cta{display:flex;align-items:center;gap:22px;opacity:0;animation:rise .9s .9s forwards;flex-wrap:wrap;}
+  .btn{font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+    padding:17px 32px;background:var(--ink);color:var(--paper);border-radius:2px;transition:all .3s;display:inline-flex;align-items:center;gap:10px;}
+  .btn:hover{background:var(--clay);transform:translateY(-2px);}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);}
+  .hero-photo{position:relative;z-index:1;opacity:0;animation:fadePhoto 1.4s .5s forwards;}
+  .hero-photo .frame{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:2px;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:saturate(0.96) contrast(1.02);}
+  .hero-photo .frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(42,33,23,0.12);}
+  .hero-photo .cap{position:absolute;left:-26px;bottom:42px;background:var(--paper);padding:14px 22px;border:1px solid var(--line);}
+  .hero-photo .cap .n{font-family:var(--display);font-size:19px;font-weight:600;line-height:1;}
+  .hero-photo .cap .r{font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-top:5px;}
+  .scroll-cue{position:absolute;bottom:34px;left:0;font-family:var(--ui);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mute);display:flex;align-items:center;gap:12px;opacity:0;animation:rise .9s 1.2s forwards;}
+  .scroll-cue .ln{width:46px;height:1px;background:var(--ink-mute);position:relative;overflow:hidden;}
+  .scroll-cue .ln::after{content:"";position:absolute;inset:0;background:var(--clay);transform:translateX(-100%);animation:sweep 2.4s linear infinite;}
+
+  /* ---------- SECTION CHROME ---------- */
+  section{position:relative;padding:120px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:56px;}
+  .sec-num{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:0.1em;color:var(--clay);padding-top:8px;}
+  .sec-title{font-family:var(--display);font-weight:500;font-size:clamp(38px,5vw,62px);line-height:1.0;letter-spacing:-0.015em;}
+  .sec-title .it{color:var(--clay);}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
+
+  /* ---------- APPROACH ---------- */
+  .approach{background:var(--espresso);color:var(--paper);}
+  .approach .eyebrow{color:var(--clay-soft);}
+  .approach .quote{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.4vw,58px);line-height:1.12;letter-spacing:-0.01em;max-width:18ch;margin:18px 0 50px;}
+  .approach .quote .it{color:var(--clay-soft);}
+  .approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;border-top:1px solid rgba(245,238,226,0.16);padding-top:46px;}
+  .approach-grid p{color:rgba(245,238,226,0.78);font-size:18px;line-height:1.7;}
+  .approach-grid p b{color:var(--paper);font-weight:500;}
+  @media(max-width:820px){.approach-grid{grid-template-columns:1fr;gap:28px;}}
+
+  /* ---------- STATS ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stat{padding:44px 28px 40px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .n{font-family:var(--display);font-weight:500;font-size:clamp(48px,6vw,76px);line-height:0.9;color:var(--clay);letter-spacing:-0.02em;}
+  .stat .l{font-family:var(--ui);font-size:13px;line-height:1.45;color:var(--ink-soft);margin-top:14px;}
+  @media(max-width:820px){.stats{grid-template-columns:1fr 1fr;}.stat:nth-child(2){border-right:none;}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}}
+
+  /* ---------- METHODS ---------- */
+  .methods-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px;}
+  .method{display:grid;grid-template-columns:46px 1fr;gap:22px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start;}
+  .method .mi{font-family:var(--display);font-weight:500;font-size:30px;color:var(--clay);line-height:1;padding-top:4px;}
+  .method h3{font-family:var(--display);font-weight:600;font-size:27px;line-height:1.1;margin-bottom:8px;letter-spacing:-0.01em;}
+  .method p{font-size:16px;line-height:1.55;color:var(--ink-soft);}
+  @media(max-width:820px){.methods-grid{grid-template-columns:1fr;gap:0;}}
+
+  /* ---------- ACHIEVEMENTS ---------- */
+  .ach{background:var(--paper-2);}
+  .ach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  .ach-card{background:var(--paper);border:1px solid var(--line);padding:34px 36px;position:relative;}
+  .ach-card.wide{grid-column:1 / -1;}
+  .ach-card .k{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;}
+  .ach-card h3{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.12;margin-bottom:10px;letter-spacing:-0.01em;}
+  .ach-card p{font-size:16px;line-height:1.55;color:var(--ink-soft);}
+  .ach-card p b{color:var(--ink);font-weight:500;}
+  @media(max-width:820px){.ach-grid{grid-template-columns:1fr;}.ach-card.wide{grid-column:auto;}}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:34px 0;border-top:1px solid var(--line);}
+  .edu-row:last-child{border-bottom:1px solid var(--line);}
+  .edu-row .cat{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);padding-top:6px;}
+  .edu-list{display:flex;flex-direction:column;gap:18px;}
+  .edu-item .t{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.2;letter-spacing:-0.01em;}
+  .edu-item .s{font-size:15px;color:var(--ink-soft);line-height:1.45;margin-top:3px;}
+  @media(max-width:820px){.edu-row{grid-template-columns:1fr;gap:16px;}}
+
+  /* ---------- AUDIENCE ---------- */
+  .aud{background:var(--espresso);color:var(--paper);}
+  .aud .sec-title{color:var(--paper);}
+  .aud .sec-num{color:var(--clay-soft);}
+  .aud-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,238,226,0.16);border:1px solid rgba(245,238,226,0.16);}
+  .aud-cell{background:var(--espresso);padding:34px 26px;}
+  .aud-cell .num{font-family:var(--display);font-style:italic;font-size:34px;color:var(--clay-soft);line-height:1;margin-bottom:18px;}
+  .aud-cell h3{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.12;margin-bottom:12px;}
+  .aud-cell p{font-size:15px;line-height:1.5;color:rgba(245,238,226,0.72);}
+  @media(max-width:820px){.aud-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.aud-grid{grid-template-columns:1fr;}}
+
+  /* ---------- SERVICES ---------- */
+  .serv-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:20px;}
+  .serv-col > .ch{display:flex;align-items:baseline;gap:14px;padding-bottom:20px;border-bottom:2px solid var(--ink);margin-bottom:8px;}
+  .serv-col.peers > .ch{border-bottom-color:var(--clay);}
+  .serv-col .ch .t{font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:-0.01em;}
+  .serv-col .ch .tag{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);}
+  .serv-item{padding:26px 0;border-bottom:1px solid var(--line);}
+  .serv-item h3{font-family:var(--display);font-weight:600;font-size:24px;line-height:1.15;margin-bottom:8px;letter-spacing:-0.01em;}
+  .serv-item p{font-size:16px;line-height:1.55;color:var(--ink-soft);}
+  .serv-item .meta{font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-top:12px;}
+  @media(max-width:820px){.serv-head{grid-template-columns:1fr;gap:48px;}}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--clay);color:var(--paper);text-align:center;padding:130px 0;}
+  .contact .eyebrow{color:rgba(245,238,226,0.7);}
+  .contact h2{font-family:var(--display);font-weight:500;font-size:clamp(44px,7vw,90px);line-height:0.98;letter-spacing:-0.02em;margin:20px 0 24px;}
+  .contact h2 .it{font-style:italic;}
+  .contact p{font-size:19px;color:rgba(245,238,226,0.85);max-width:44ch;margin:0 auto 44px;line-height:1.55;}
+  .contact-links{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;}
+  .clink{display:inline-flex;align-items:center;gap:12px;font-family:var(--ui);font-weight:600;font-size:14px;letter-spacing:0.03em;
+    padding:18px 30px;background:var(--paper);color:var(--espresso);border-radius:2px;transition:all .3s;}
+  .clink:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(34,26,18,0.25);}
+  .clink.tg{background:var(--espresso);color:var(--paper);}
+  .clink svg{width:20px;height:20px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--espresso);color:rgba(245,238,226,0.6);padding:40px 0;}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  footer .fb{font-family:var(--display);font-size:20px;font-weight:600;color:var(--paper);}
+  footer .fb span{color:var(--clay-soft);}
+  footer .fmeta{font-family:var(--ui);font-size:12px;letter-spacing:0.05em;}
+  footer .fsoc{display:flex;gap:14px;}
+  footer .fsoc a{color:rgba(245,238,226,0.7);transition:color .25s;}
+  footer .fsoc a:hover{color:var(--paper);}
+
+  /* animations */
+  @keyframes slideUp{to{transform:translateY(0);}}
+  @keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes fadePhoto{from{opacity:0;transform:scale(1.04);}to{opacity:1;transform:none;}}
+  @keyframes sweep{0%{transform:translateX(-100%);}60%,100%{transform:translateX(100%);}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}.hero h1 span{transform:none;}.hero .eyebrow,.hero .lede,.hero-cta,.scroll-cue,.hero-photo{opacity:1;}}
+
+  @media(max-width:900px){
+    .wrap{padding:0 26px;}
+    nav{padding:18px 26px;}
+    .hero{grid-template-columns:1fr;gap:40px;min-height:auto;padding:130px 0 70px;}
+    .hero-photo{max-width:420px;}
+    .hero-photo .cap{left:14px;}
+    section{padding:84px 0;}
+    .scroll-cue{display:none;}
+    .stat{padding:30px 18px;}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brand">Кристина <span>Дюран</span></a>
+  <div class="links">
+    <a href="#approach" class="navlink">Подход</a>
+    <a href="#methods" class="navlink">Методы</a>
+    <a href="#education" class="navlink">Образование</a>
+    <a href="#services" class="navlink">Услуги</a>
+    <a href="https://www.instagram.com/kristinadiuran?igsh=MW5uNmxwNGRwZjkzMw==" class="soc" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://t.me/KristinaDiuran" class="soc" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.3 13.2 1.5 11.7c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.3z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<a id="top"></a>
+<header class="hero wrap">
+  <svg class="hero-decor" viewBox="0 0 600 700" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#A6542C" stroke-width="0.6" opacity="0.5">
+      <line x1="120" y1="90" x2="320" y2="180"/><line x1="320" y1="180" x2="240" y2="380"/>
+      <line x1="320" y1="180" x2="500" y2="240"/><line x1="240" y1="380" x2="430" y2="470"/>
+      <line x1="500" y1="240" x2="430" y2="470"/><line x1="430" y1="470" x2="300" y2="610"/>
+      <line x1="240" y1="380" x2="120" y2="540"/><line x1="120" y1="540" x2="300" y2="610"/>
+    </g>
+    <g fill="#A6542C">
+      <circle cx="120" cy="90" r="3.5"/><circle cx="320" cy="180" r="5"/><circle cx="500" cy="240" r="3.5"/>
+      <circle cx="240" cy="380" r="5"/><circle cx="430" cy="470" r="4"/><circle cx="120" cy="540" r="3.5"/><circle cx="300" cy="610" r="4.5"/>
+    </g>
+  </svg>
+  <div class="hero-text">
+    <span class="eyebrow">Психотерапевт · EMDR-специалист · нейробиолог</span>
+    <h1 class="display">
+      <span class="l1"><span>Кристина</span></span>
+      <span class="l2"><span>Дюран</span></span>
+    </h1>
+    <p class="lede"><b>Психотерапия нового времени</b> — на фундаменте нейробиологии. Работаю с травмой, кризисами и сложными жизненными сценариями краткосрочными методами.</p>
+    <div class="hero-cta">
+      <a href="https://t.me/KristinaDiuran" class="btn" target="_blank" rel="noopener">Записаться
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+      </a>
+      <a href="#services" class="btn ghost">Услуги и программы</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="frame"><img src="img/portrait.jpg" alt="Кристина Дюран"></div>
+    <div class="cap"><div class="n">Кристина Дюран</div><div class="r">Психотерапия нового времени</div></div>
+  </div>
+  <div class="scroll-cue"><span class="ln"></span>Листайте вниз</div>
+</header>
+
+<!-- APPROACH -->
+<section class="approach" id="approach">
+  <div class="wrap">
+    <span class="eyebrow reveal">01 — Подход</span>
+    <p class="quote display reveal d1">Суть психотерапии — <span class="it">реорганизация нейронных сетей</span> и стабилизация работы мозга.</p>
+    <div class="approach-grid">
+      <p class="reveal d1">Я работаю в интегративном подходе с опорой на краткосрочные методы: <b>EMDR/ДПДГ</b>, классический и когнитивный гипноз, провокативную терапию. Это не «просто поговорить» — это работа с тем, как мозг и нервная система кодируют опыт, и как этот код можно переписать.</p>
+      <p class="reveal d2">Там, где разговорная терапия годами возвращает к боли, нейропроцессинг помогает интегрировать тяжёлый опыт в новый, устойчивый паттерн. Со сложными и клиническими случаями работаю <b>в партнёрстве с психиатром и неврологом</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">02</span><h2 class="sec-title display">Опыт <span class="it">в цифрах</span></h2></div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n">7+</div><div class="l">лет практики в интегративном подходе</div></div>
+      <div class="stat reveal d1"><div class="n">5000+</div><div class="l">часов индивидуальных консультаций</div></div>
+      <div class="stat reveal d2"><div class="n">~1000</div><div class="l">человек прошли групповые программы</div></div>
+      <div class="stat reveal d3"><div class="n">12+</div><div class="l">лет изучения психики и нейробиологии</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section id="methods" style="padding-top:40px;">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">03</span><h2 class="sec-title display">Ключевые <span class="it">компетенции</span></h2></div>
+    <div class="methods-grid">
+      <div class="method reveal"><div class="mi">01</div><div><h3>EMDR / ДПДГ</h3><p>Переработка травмы на нейрофизиологическом уровне — нейропроцессинг. Часто 1–2 сессии на эпизод, по протоколам — больше.</p></div></div>
+      <div class="method reveal d1"><div class="mi">02</div><div><h3>Классический и когнитивный гипноз</h3><p>Работа с убеждениями и состояниями через управляемые трансы и рост нейропластичности.</p></div></div>
+      <div class="method reveal"><div class="mi">03</div><div><h3>Краткосрочная и провокативная терапия</h3><p>Быстрый, ориентированный на результат формат вместо бесконечного процесса.</p></div></div>
+      <div class="method reveal d1"><div class="mi">04</div><div><h3>Травма и кризисные состояния</h3><p>ПТСР и КПТСР, последствия насилия, утраты, тревожно-депрессивный фон, психосоматика.</p></div></div>
+      <div class="method reveal"><div class="mi">05</div><div><h3>Интегративный подход</h3><p>Подбор инструментов под задачу клиента, элементы психоанализа, гештальта и КПТ.</p></div></div>
+      <div class="method reveal d1"><div class="mi">06</div><div><h3>Сопровождение предпринимателей</h3><p>Стратегии развития на стыке терапии, нейробиологии и коучинга — личные и бизнес-задачи.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="ach" id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">04</span><h2 class="sec-title display">Достижения <span class="it">и признание</span></h2></div>
+    <div class="ach-grid">
+      <div class="ach-card wide reveal">
+        <div class="k">Авторский метод</div>
+        <h3>«Глубинная реконструкция линии жизни»</h3>
+        <p>Собственная методология работы со сложным жизненным сценарием и многоуровневой травмой — на основе EMDR и нейробиологии. Сейчас готовлю исследование механизмов ускорения реорганизации нейронных сетей.</p>
+      </div>
+      <div class="ach-card reveal d1">
+        <div class="k">Публичность</div>
+        <h3>ТВ, СМИ и сцена</h3>
+        <p>Автор статей в СМИ, приглашённый гость теле-программ, спикер профильных конференций и мероприятий.</p>
+      </div>
+      <div class="ach-card reveal d2">
+        <div class="k">С кем работаю</div>
+        <h3>Первые лица бизнеса</h3>
+        <p>Среди клиентов — <b>предприниматели, топ-менеджеры и блогеры-миллионники</b>; работа на годы и по рекомендации.</p>
+      </div>
+      <div class="ach-card wide reveal d1">
+        <div class="k">Социальная миссия</div>
+        <h3>Фонд «Добромамы»</h3>
+        <p>Волонтёр и соучастник создания фонда — поддержка женщин в сложной жизненной ситуации и детей, оставшихся без попечения родителей.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">05</span><h2 class="sec-title display">Квалификация <span class="it">и образование</span></h2></div>
+    <div class="reveal">
+      <div class="edu-row">
+        <div class="cat">Высшее · магистратура</div>
+        <div class="edu-list">
+          <div class="edu-item"><div class="t">«Нейробиология психического здоровья»</div><div class="s">Московский институт психоанализа — обучение</div></div>
+          <div class="edu-item"><div class="t">«Клиническая психология»</div><div class="s">ННГУ им. Н.И. Лобачевского — 1 курс</div></div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="cat">Переподготовка</div>
+        <div class="edu-list">
+          <div class="edu-item"><div class="t">Психологическое консультирование</div><div class="s">Институт психотерапии и клинической психологии · «Интегративная психология и психотерапия»</div></div>
+          <div class="edu-item"><div class="t">Медицинский психолог</div><div class="s">Московский институт психоанализа</div></div>
+        </div>
+      </div>
+      <div class="edu-row">
+        <div class="cat">Повышение квалификации</div>
+        <div class="edu-list">
+          <div class="edu-item"><div class="t">EMDR 2.0 · краткосрочная, провокативная и юморотерапия</div><div class="s">Институт психотерапии и клинической психологии (ИПиКП)</div></div>
+          <div class="edu-item"><div class="t">Классический гипноз · работа с травмой через тело</div><div class="s">Московский институт гипноза · у д.м.н. Б.Г. Афанасьева</div></div>
+          <div class="edu-item"><div class="t">Психофармакология · МАК · травмы развития в ТОП · переговоры</div><div class="s">Серия профильных семинаров, тренингов и авторских программ</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="aud" id="audience">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">06</span><h2 class="sec-title display">С кем <span class="it">работаю</span></h2></div>
+    <div class="aud-grid reveal">
+      <div class="aud-cell"><div class="num">01</div><h3>Клинические и кризисные состояния</h3><p>Многоуровневая травма, последствия насилия, психосоматика, тревога и депрессивный фон, ПТСР/КПТСР.</p></div>
+      <div class="aud-cell"><div class="num">02</div><h3>Предприниматели и ТОП-менеджеры</h3><p>Сопровождение на стыке терапии, нейробиологии и коучинга — личные и бизнес-задачи.</p></div>
+      <div class="aud-cell"><div class="num">03</div><h3>Блогеры и инфлюенсеры</h3><p>Публичность и высокие нагрузки, запрос на устойчивость и опору.</p></div>
+      <div class="aud-cell"><div class="num">04</div><h3>Психологи и помогающие практики</h3><p>Личная терапия, супервизия и развитие практики для коллег.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">07</span><h2 class="sec-title display">Услуги <span class="it">и программы</span></h2></div>
+    <div class="serv-head">
+      <div class="serv-col reveal">
+        <div class="ch"><span class="t">Клиентам</span><span class="tag">Тем, кто приходит за помощью</span></div>
+        <div class="serv-item"><h3>Индивидуальная терапия</h3><p>Личная работа онлайн и офлайн — глубокая проработка запроса краткосрочными методами.</p><div class="meta">Онлайн / офлайн · по записи</div></div>
+        <div class="serv-item"><h3>Групповые EMDR-сессии</h3><p>Онлайн-сессии по темам: тревога и стресс, деньги, отношения, здоровье. Работа с одним убеждением или состоянием.</p><div class="meta">Онлайн · группой</div></div>
+        <div class="serv-item"><h3>Тематические программы</h3><p>«Желать по-взрослому. Намерения 2026», «Отношения 1.0» и другие потоковые программы под конкретную задачу.</p><div class="meta">Потоки · онлайн</div></div>
+        <div class="serv-item"><h3>Закрытый клуб</h3><p>Telegram-сообщество с регулярным тематическим контентом, практиками и поддержкой.</p><div class="meta">Подписка · Telegram</div></div>
+      </div>
+      <div class="serv-col peers reveal d1">
+        <div class="ch"><span class="t">Специалистам</span><span class="tag">Психологам и помогающим практикам</span></div>
+        <div class="serv-item"><h3>Обучение по авторской методологии</h3><p>Программа «Психотерапия нового времени» — методология и нейробиологическая база для практикующих специалистов.</p><div class="meta">Обучение · ДПО</div></div>
+        <div class="serv-item"><h3>Сертификация по EMDR</h3><p>Базовые и продвинутые техники нейропроцессинга и билатеральной стимуляции.</p><div class="meta">Курс · сертификация</div></div>
+        <div class="serv-item"><h3>Супервизия и сопровождение</h3><p>Разбор клинических случаев, личная терапия и сопровождение практики — индивидуально и в группе.</p><div class="meta">Индивидуально / группой</div></div>
+        <div class="serv-item"><h3>Сеть терапевтов под патронажем</h3><p>Развитие практики специалистов, обученных по методу, под единым брендом.</p><div class="meta">Сообщество практиков</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Запись и контакты</span>
+    <h2 class="display">Начнём <span class="it">работу</span></h2>
+    <p>Запись на консультации и в программы — по рекомендации и через личные сообщения. Напишите мне в Telegram или Instagram.</p>
+    <div class="contact-links">
+      <a href="https://t.me/KristinaDiuran" class="clink tg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.3 13.2 1.5 11.7c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.3z"/></svg>
+        Telegram · @KristinaDiuran
+      </a>
+      <a href="https://www.instagram.com/kristinadiuran?igsh=MW5uNmxwNGRwZjkzMw==" class="clink" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram · @kristinadiuran
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fb">Кристина <span>Дюран</span></div>
+    <div class="fmeta">Психотерапия нового времени · 2026</div>
+    <div class="fsoc">
+      <a href="https://www.instagram.com/kristinadiuran?igsh=MW5uNmxwNGRwZjkzMw==" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://t.me/KristinaDiuran" target="_blank" rel="noopener" aria-label="Telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.3-.1-.5-.6-.2L6.3 13.2 1.5 11.7c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.3 1.3z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav background on scroll
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>40); };
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // footer year
+  document.querySelector('footer .fmeta').innerHTML='Психотерапия нового времени · '+new Date().getFullYear();
+</script>
+</body>
+</html>
